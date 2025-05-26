@@ -1,0 +1,2 @@
+// filepath: /workspaces/JavaPlayground/settings.gradle
+rootProject.name = 'JavaPlayground'
