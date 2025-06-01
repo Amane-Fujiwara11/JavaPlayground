@@ -12,7 +12,7 @@ ls ~/.ssh
 ```
 
 ### 2. SSH キーを Dev Container にコピー
-ホストマシンから Dev Container に SSH キーをコピーします。
+ホストマシンのターミナルから Dev Container に SSH キーをコピーします。
 <コンテナID>には、実際のコンテナ ID を入力してください(`docker ps`で！)。
 ```
 docker cp ~/.ssh/id_ed25519 <コンテナID>:/root/.ssh/id_ed25519
@@ -20,8 +20,12 @@ docker cp ~/.ssh/id_ed25519.pub <コンテナID>:/root/.ssh/id_ed25519.pub
 ```
 
 ### 3. SSH キーのパーミッションを修正
-コンテナ内で以下を実行して、SSH キーのパーミッションを適切に設定します。
+コンテナ内のターミナルから以下を実行し、SSH キーのパーミッションを適切に設定します。
 ```
+# コピー状態と権限を確認
+ls -lrt ~/.ssh/
+
+# 権限が足りない場合は設定
 chmod 600 ~/.ssh/id_ed25519
 chmod 644 ~/.ssh/id_ed25519.pub
 ```
