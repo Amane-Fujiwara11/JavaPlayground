@@ -32,6 +32,10 @@ public class CalcService {
      * @return フィボナッチ数列のn番目の値
      */
     public int fibo(int number) {
+        if (number < 0) {
+            throw new IllegalArgumentException("フィボナッチ数列は非負整数に対して定義されています。");
+        }
+
         switch (number) {
             case 0:
                 // F(0) = 0
