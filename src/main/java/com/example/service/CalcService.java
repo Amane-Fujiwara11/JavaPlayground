@@ -56,4 +56,39 @@ public class CalcService {
         }
 
     }
+
+    /**
+     * 最大公約数を計算します。
+     * 
+     * @param number1 正の整数
+     * @param number2 正の整数
+     * @return 最大公約数
+     */
+    public int gcd(int number1, int number2) {
+
+        if (number1 <= 1 || number2 <= 1) {
+            throw new IllegalArgumentException("最大公約数は非負整数に対して定義されています。");
+        }
+
+        int biggerNumber;
+        int smallerNumber;
+        if (number1 > number2) {
+            biggerNumber = number1;
+            smallerNumber = number2;
+        } else if (number1 < number2) {
+            biggerNumber = number2;
+            smallerNumber = number1;
+        } else {
+            // number1 == number2 の場合、最大公約数はどちらの数も同じ
+            return number1;
+        }
+
+        for (int i = 1; i != 0;) {
+            i = biggerNumber % smallerNumber;
+            biggerNumber = smallerNumber;
+            smallerNumber = i;
+        }
+
+        return biggerNumber;
+    }
 }

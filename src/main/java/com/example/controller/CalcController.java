@@ -37,4 +37,15 @@ public class CalcController {
         model.addAttribute("fanc", fanc);
         return "calc/fanc/index";
     }
+
+    @GetMapping("/gcd")
+    public String calcGcd(Model model,
+            @RequestParam(value = "name") Optional<String> name,
+            @RequestParam(value = "number1", defaultValue = "5") int number1,
+            @RequestParam(value = "number2", defaultValue = "10") int number2) {
+        int fanc = calcService.gcd(number1, number2);
+        model.addAttribute("name", name.orElse("World"));
+        model.addAttribute("fanc", fanc);
+        return "calc/fanc/index";
+    }
 }
