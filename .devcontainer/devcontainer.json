@@ -18,7 +18,31 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "java -version",
 	// Configure tool-specific properties.
-	"customizations": {},
+	"customizations": {
+		"vscode": {
+			// Add the IDs of extensions you want to install.
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"redhat.java",
+				"vscjava.vscode-spring-initializr",
+				"vscjava.vscode-spring-boot-dashboard",
+				"vscjava.vscode-spring-boot-devtools",
+				"saoudrizwan.claude-dev",
+				"ms-ceintl.vscode-language-pack-ja"
+			],
+			// Configure Java settings.
+			"settings": {
+				"mcpServers": {
+					"playwright": {
+						"command": "npx",
+						"args": [
+							"@playwright/mcp@latest"
+						]
+					}
+				}
+			}
+		}
+	},
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "root"
 }
