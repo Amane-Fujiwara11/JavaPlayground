@@ -14,7 +14,7 @@ import com.example.service.CalcService;
 @RequestMapping("/calc")
 public class CalcController {
 
-    private CalcService calcService;
+    private final CalcService calcService;
 
     CalcController(CalcService calcService) {
         this.calcService = calcService;
